@@ -54,8 +54,8 @@ Here the path parameter from the request is played back in the template
     "generatorRange": [1, 5],
     "template": {
       "{{#each sequence}}": {
-        "name": "Product {{this}}",
-        "description": "Description for Product {{this}}"
+        "name": "Product {{this.item}}",
+        "description": "Description for Product {{this.item}}"
       }
     }
   }
@@ -96,7 +96,9 @@ This might be a bit daunting to look at but we'll talk through it. What it's say
 
 It's got number regexes for both the `page` and `limit` query params.
 
-Then it's 
+Then we say that the range is 1 to 200 (the max number just needs to be the highest possible amount in your UI. If you let people show 200 results, then set it to 200).
+
+Then we loop over the sequence, but only as high as the `limit` query parameter. Then, in order to give everything the correct number we multiply the page by the number of results per page (the limit).
 
 ```javascript
 {
@@ -110,7 +112,7 @@ Then it's
   "response": {
     "mode": "stub",
     "templateType": "st",
-    "generatorRange": [1, 1000],
+    "generatorRange": [1, 100],
     "template": {
       	"{{#each sequence}}": [{
 	      	"{{#if this.item <= this.request.query.limit}}": {
@@ -123,36 +125,20 @@ Then it's
 }
 ```
 
-This would give you
+This would give you:
 
-
-
-### String templates
-
-You might have to use these when you have a number or a boolean.
+`/users?page=2&limit=5`
 
 ```javascript
-
-
+[
+  { "id": 6, "name": "User 6" },
+  { "id": 7, "name": "User 7" },
+  { "id": 8, "name": "User 8" },
+  { "id": 9, "name": "User 9" },
+  { "id": 10, "name": "User 10" },
+]
 ```
 
-### Other generators - e.g. firstname, lastname, email
+### Other generators
 
-```javascript
-{
-  "request": {
-    "path": "/users"
-  },
-  "response": {
-    "mode": "stub",
-    "templateType": "st",
-    "generatorRange": [1, 10],
-    "template": {
-      "{{#each sequence}}": {
-      	"id": "{{this}}"
-        "name": "{{this.generate.firstName()}}"
-      }
-    }
-  }
-}
-```
+Coming soon!
