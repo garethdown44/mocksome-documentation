@@ -119,35 +119,16 @@ You can do exact matching:
 ```javascript
 {
   path: "/somepath",
-  bodyMatchType: 'exact',
-  body: { 
-    product: { 
-      name: "Turbomop", 
-      description: "Awesome mop" 
-    }, 
-    categories: [ { id: 1, name: "Mops" }, { id: 2, name: "Home" } ] }
+  body: 'hello',
+  bodyType: 'string',
+  bodyMatchType: 'exact'
 }
 ```
 
 This would match:
 
 ```javascript
-{
-    "product": {
-        "name": "Turbomop",
-        "description": "Awesome mop"
-    },
-    "categories": [
-        {
-            "id": 1,
-            "name": "Mops"
-        },
-        {
-            "id": 2,
-            "name": "Home"
-        }
-    ]
-}
+hello
 ```
 
 And includes string matching:
