@@ -389,17 +389,17 @@ pre {
 .titleWrapper {
   display: flex;
   align-items: center;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgb(230, 236, 241);
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 .title {
   font-size: 32px;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   font-weight: 500;
-  border-left: 2px solid rgb(116, 76, 188);
-  padding: 0 16px;
+  /* border-left: 2px solid rgb(116, 76, 188); */
+  /* padding: 0 16px; */
   flex: 1;
   margin-top: 0;
   padding-top: 0;

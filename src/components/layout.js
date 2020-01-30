@@ -18,7 +18,7 @@ const Wrapper = styled('div')`
 const Content = styled('main')`
   display: flex;
   flex-grow: 1;
-  margin: 0px 88px;
+  margin: 0px 60px;
   margin-top: 3rem;
 
   @media only screen and (max-width: 1023px) {
