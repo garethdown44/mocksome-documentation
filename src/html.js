@@ -8,20 +8,7 @@ export default class HTML extends React.Component {
       <html {...this.props.htmlAttributes}>
         <head>
         
-          {/* BEGIN: Google Analytics Tracking Code */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46550902-2"></script>
-          <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-46550902-2');
-            `
-          }}
-          />
-          {/* END: Google Analytics Tracking Code */}
+          
 
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
