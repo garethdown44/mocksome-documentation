@@ -8,7 +8,20 @@ export default class HTML extends React.Component {
       <html {...this.props.htmlAttributes}>
         <head>
         
-          
+          {/* BEGIN: Google Analytics Tracking Code */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46550902-2"></script>
+          <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-46550902-2');
+            `
+          }}
+          />
+          {/* END: Google Analytics Tracking Code */}
 
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -54,6 +67,23 @@ export default class HTML extends React.Component {
             });
             `
           }}
+          />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.doorbellOptions = {
+                "id": "11278",
+                "appKey": "nHkiH7SGuhlHx8sT92Tgp4kTdMO7e2paJQjXw9BGTCGMUeq1xs92Drh73eBb9kAc"
+            };
+            (function(w, d, t) {
+                var hasLoaded = false;
+                function l() { if (hasLoaded) { return; } hasLoaded = true; window.doorbellOptions.windowLoaded = true; var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/'+window.doorbellOptions['id']+'?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g); }
+                if (w.attachEvent) { w.attachEvent('onload', l); } else if (w.addEventListener) { w.addEventListener('load', l, false); } else { l(); }
+                if (d.readyState == 'complete') { l(); }
+            }(window, document, 'script'));
+              `
+            }}
           />
         </body>
       </html>
